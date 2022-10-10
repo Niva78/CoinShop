@@ -14,24 +14,28 @@ import javax.persistence.*;
  */
 
 @Entity
+@Table(name = "CLIENT")
 public class Client implements Serializable {
 
     /**
      *
      */
-    @Id @GeneratedValue(strategy=GenerationType.AUTO)
+    @Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name = "CLIENT_ID")
     private int id;
-    private int age;
+    
     private String name;
+    private String mail;
+    private String passwd;
     private String phone;
     
     
     public Client(){
     }
     
-    public Client(int age, String name, String phone){
-        this.age=age;
+    public Client(String name, String mail, String passwd, String phone){
         this.name = name;
+        this.mail = mail;
+        this.passwd = passwd;
         this.phone = phone;
     }
     
@@ -39,8 +43,12 @@ public class Client implements Serializable {
         return this.id;
     }
     
-    public int getAge(){
-        return this.age;
+    public String getMail(){
+        return this.mail;
+    }
+    
+    public String getPasswd(){
+        return this.passwd;
     }
     
     public String getName(){
@@ -52,6 +60,6 @@ public class Client implements Serializable {
     
     @Override
     public String toString(){
-        return "Age: " + this.age + "Name: " + this.name + "Phone: " + this.phone;
+        return ("Name: " + this.name + " Mail: " + this.mail + " Password: " + this.passwd + " Phone:" + this.phone);
     }
 }

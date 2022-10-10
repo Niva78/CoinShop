@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import model.Client;
-import model.ClientService;
+import Service.ClientService;
 
 /**
  *
@@ -24,7 +24,7 @@ public class TestingClient {
         ClientService cliService = new ClientService(em);
         
         em.getTransaction().begin();
-        Client cli1 =  cliService.createClient(22, "Nico", "1234");
+        Client cli1 =  cliService.createClient("Nicolas", "nicolas@gmail.com" , "1234", "5678");
         em.getTransaction().commit();
         System.out.println(cli1);
     }
