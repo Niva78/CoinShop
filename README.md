@@ -1,1 +1,1 @@
-# TestingJPA
+# CoinShop
