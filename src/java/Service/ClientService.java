@@ -14,7 +14,7 @@ import model.Client;
  */
 public class ClientService {
     
-    @PersistenceContext (unitName = "OnlineRestaurantPU")
+    @PersistenceContext (unitName = "Homework1PU")
     protected EntityManager em;
     
     public ClientService(EntityManager em){

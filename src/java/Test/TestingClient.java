@@ -17,7 +17,7 @@ import Service.ClientService;
 public class TestingClient {
     
     public static void main(String[] args){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineRestaurantPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Homework1PU");
         
         EntityManager em = emf.createEntityManager();
         

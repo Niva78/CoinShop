@@ -14,7 +14,7 @@ import model.Purchase;
  * @author Jarvis
  */
 public class PurchaseService {
-        @PersistenceContext (unitName = "OnlineRestaurantPU")
+        @PersistenceContext (unitName = "Homework1PU")
     protected EntityManager em;
     
     public PurchaseService(EntityManager em){

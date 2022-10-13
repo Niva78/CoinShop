@@ -13,7 +13,7 @@ import model.Coin;
  * @author Jarvis
  */
 public class CoinService {
-    @PersistenceContext (unitName = "OnlineRestaurantPU")
+    @PersistenceContext (unitName = "Homework1PU")
     protected EntityManager em;
     
     public CoinService(EntityManager em){
