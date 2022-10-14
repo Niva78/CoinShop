@@ -19,7 +19,9 @@ import javax.persistence.Table;
 @Table(name = "COIN")
 public class Coin {
     
-    @Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name = "COIN_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Comment_Gen")
+    @Column(name = "COIN_ID")
     private int Id;
 
     private String coinName;

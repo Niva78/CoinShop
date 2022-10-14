@@ -26,6 +26,8 @@ public class TestingClient {
         em.getTransaction().begin();
         Client cli1 =  cliService.createClient("Nicolas", "nicolas@gmail.com" , "1234", "5678");
         em.getTransaction().commit();
+        
+        
         System.out.println(cli1);
     }
     

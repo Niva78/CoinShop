@@ -17,12 +17,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity @Table(name = "PURCHASE")
 public class Purchase implements Serializable{
     
-    @Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name = "PURCHASE_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Comment_Gen") 
+    @Column(name = "PURCHASE_ID")
     public int Id;
     
     private double pricePerCoin;
@@ -30,6 +33,9 @@ public class Purchase implements Serializable{
     private Date date;
     
     //TODO Still have to implement the foreing keys to client and coin.
+    
+    @OneToMany(mappedBy="purchaces")
+    private Client client;
     
     public Purchase(){
         
@@ -51,5 +57,11 @@ public class Purchase implements Serializable{
 
     public double getPricePerCoin() {
         return pricePerCoin;
+    }
+    
+    public void setClient(Client client) {
+        if (this.client == null){
+            this.client = client;
+        }
     }
 }

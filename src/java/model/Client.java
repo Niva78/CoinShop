@@ -5,6 +5,8 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
@@ -19,8 +21,11 @@ public class Client implements Serializable {
 
     /**
      *
-     */
-    @Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(name = "CLIENT_ID")
+     */ 
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Comment_Gen")
+    @Column(name = "CLIENT_ID")
     private int id;
     
     private String name;
@@ -28,8 +33,12 @@ public class Client implements Serializable {
     private String passwd;
     private String phone;
     
+    @OneToMany
+    private Collection<Purchase> purchaces;
+    
     
     public Client(){
+        this.purchaces = new ArrayList<Purchase>();
     }
     
     public Client(String name, String mail, String passwd, String phone){
@@ -37,6 +46,7 @@ public class Client implements Serializable {
         this.mail = mail;
         this.passwd = passwd;
         this.phone = phone;
+        this.purchaces = new ArrayList<Purchase>();
     }
     
     public int getID(){
@@ -56,6 +66,11 @@ public class Client implements Serializable {
     }
     public String getPhone(){
         return this.phone;
+    }
+    
+    
+    public void addPurchaces(Purchase purchace) {
+        this.purchaces.add(purchace);
     }
     
     @Override
