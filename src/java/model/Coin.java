@@ -34,8 +34,6 @@ public class Coin {
     @OneToMany
     public Collection<Purchase> purchaces;
     
-    //TODO add the keys to the purchase class
-    
     public Coin(){
         this.purchaces = new ArrayList<Purchase>();
     }

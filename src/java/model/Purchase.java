@@ -68,10 +68,14 @@ public class Purchase implements Serializable{
         }
     }
     
+    public Client getClient(){
+        return this.client;
+    }
+    
     public Coin getCoin() {
         return coin;
     }
-
+    
     public void setCoin(Coin coin) {
         if(this.coin == null){
             this.coin = coin;
