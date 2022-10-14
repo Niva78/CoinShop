@@ -37,6 +37,9 @@ public class Purchase implements Serializable{
     @OneToMany(mappedBy="purchaces")
     private Client client;
     
+    @OneToMany(mappedBy="purchaces")
+    private Coin coin;
+    
     public Purchase(){
         
     }
@@ -62,6 +65,16 @@ public class Purchase implements Serializable{
     public void setClient(Client client) {
         if (this.client == null){
             this.client = client;
+        }
+    }
+    
+    public Coin getCoin() {
+        return coin;
+    }
+
+    public void setCoin(Coin coin) {
+        if(this.coin == null){
+            this.coin = coin;
         }
     }
 }
