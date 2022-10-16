@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package model;
+package model.entities;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,37 +10,33 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- *
- * @author Jarvis
- */
 @Entity
 @Table(name = "COIN")
-public class Coin {
-    
+public class Coin implements java.io.Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Comment_Gen")
     @Column(name = "COIN_ID")
     private int Id;
 
     private String coinName;
-    private double actualPrize;
+    private double actualPrice;
     private String description;
-    
+
     @OneToMany
-    public Collection<Purchase> purchaces;
-    
-    public Coin(){
-        this.purchaces = new ArrayList<Purchase>();
+    public Collection<Purchase> purchases;
+
+    public Coin() {
+        this.purchases = new ArrayList<>();
     }
-    
-    public Coin(String coinName, double actualPrize, String description){
+
+    public Coin(String coinName, double actualPrize, String description) {
         this.coinName = coinName;
-        this.actualPrize = actualPrize;
+        this.actualPrice = actualPrize;
         this.description = description;
-        this.purchaces = new ArrayList<Purchase>();
+        this.purchases = new ArrayList<>();
     }
-    
+
     public int getId() {
         return Id;
     }
@@ -53,15 +45,15 @@ public class Coin {
         return coinName;
     }
 
-    public double getActualPrize() {
-        return actualPrize;
+    public double getActualPrice() {
+        return actualPrice;
     }
 
     public String getDescription() {
         return description;
     }
-    
-    public void addPurchace(Purchase purchace) {
-        this.purchaces.add(purchace);
+
+    public void addPurchase(Purchase purchase) {
+        this.purchases.add(purchase);
     }
 }
